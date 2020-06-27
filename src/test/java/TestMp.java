@@ -1,5 +1,6 @@
 import com.atguigu.mp.beans.Employee;
 import com.atguigu.mp.mapper.EmployeeMapper;
+import com.baomidou.mybatisplus.mapper.Condition;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import org.junit.Test;
@@ -45,10 +46,11 @@ public class TestMp {
 
 //        List<Employee> employees = employeeMapper.selectList(new EntityWrapper<Employee>().eq("gender", 1)
 //                .like("last_name", "aaa").orNew().eq("gender", 0));
-//
 //        for (Employee ee : employees) {
 //            System.out.println(ee.toString());
 //        }
+
+
 
 
     }
