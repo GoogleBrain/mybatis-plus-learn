@@ -19,7 +19,25 @@ public class TestMp {
     private ApplicationContext iocContext = new
             ClassPathXmlApplicationContext("applicationContext.xml");
 
+
     @Test
+    public void TestPageUpdateWrapper() {
+        EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
+
+        Page<Employee> page = new Page<Employee>(1, 1);
+        List<Employee> employees = employeeMapper.selectPage(page, null);
+        employees.forEach(System.out::println);
+        System.out.println("总数量>>>>"+page.getTotal());
+        System.out.println("当前页数>>"+page.getCurrent());
+        System.out.println("总页数>>"+page.getPages());
+        System.out.println("每页条数>>"+page.getSize());
+        System.out.println("是否有上一页"+page.hasPrevious());
+        System.out.println("是否是下一页"+page.hasNext());
+
+        page.setRecords(employees);
+    }
+
+    //    @Test
     public void TestUpdateWrapper() {
         EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
         Employee em = new Employee();
@@ -49,8 +67,6 @@ public class TestMp {
 //        for (Employee ee : employees) {
 //            System.out.println(ee.toString());
 //        }
-
-
 
 
     }
@@ -127,7 +143,7 @@ public class TestMp {
     /**
      * 插入方法
      */
-//    @Test
+    @Test
     public void insertI() {
         EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
         Employee employee = new Employee();
