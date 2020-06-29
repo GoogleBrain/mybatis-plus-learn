@@ -37,6 +37,8 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
         <!-- 别名处理 -->
         <property name="typeAliasesPackage"   value="com.atguigu.mp.beans"></property>
 
+        <property name="mapperLocations" value="classpath*:mapper/**"></property>
+
 
         <property name="plugins" >
             <list>
@@ -52,6 +54,8 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
                     <property name="maxTime" value="1000"></property>
                     <property name="format" value="true"></property>
                 </bean>
+                <!--乐观锁插件-->
+                <bean class="com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor"></bean>
             </list>
         </property>
 <!--        <property name="globalConfig" ref="globalConfiguration" ></property>-->

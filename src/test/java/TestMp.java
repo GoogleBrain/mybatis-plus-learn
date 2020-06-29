@@ -19,12 +19,34 @@ public class TestMp {
     private ApplicationContext iocContext = new
             ClassPathXmlApplicationContext("applicationContext.xml");
 
-
+    /**
+     * 自定义接口
+     */
     @Test
     public void TestDelateAllStop() {
         EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
-        employeeMapper.selectById(1);
+        int i = employeeMapper.selectCount();
+        System.out.println(">>>>" + i);
     }
+
+    /**
+     * 乐观锁插件
+     */
+//    @Test
+//    public void TestDelateAllStop() {
+//        EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
+//        Employee employee = new Employee();
+//        employee.setEmail("zhouxioamei@163.com");
+//        employee.setVersion(1);
+//        employee.setId(2000001);
+//        employeeMapper.updateById(employee);
+//    }
+
+//    @Test
+//    public void TestDelateAllStop() {
+//        EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
+//        employeeMapper.selectById(1);
+//    }
 
 //        @Test
 //    public void TestDelateAllStop() {
@@ -33,19 +55,19 @@ public class TestMp {
 //    }
 
 
-//    @Test
+    //    @Test
     public void TestPageUpdateWrapper() {
         EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
 
         Page<Employee> page = new Page<Employee>(1, 1);
         List<Employee> employees = employeeMapper.selectPage(page, null);
         employees.forEach(System.out::println);
-        System.out.println("总数量>>>>"+page.getTotal());
-        System.out.println("当前页数>>"+page.getCurrent());
-        System.out.println("总页数>>"+page.getPages());
-        System.out.println("每页条数>>"+page.getSize());
-        System.out.println("是否有上一页"+page.hasPrevious());
-        System.out.println("是否是下一页"+page.hasNext());
+        System.out.println("总数量>>>>" + page.getTotal());
+        System.out.println("当前页数>>" + page.getCurrent());
+        System.out.println("总页数>>" + page.getPages());
+        System.out.println("每页条数>>" + page.getSize());
+        System.out.println("是否有上一页" + page.hasPrevious());
+        System.out.println("是否是下一页" + page.hasNext());
 
         page.setRecords(employees);
     }
