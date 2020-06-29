@@ -37,10 +37,21 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
         <!-- 别名处理 -->
         <property name="typeAliasesPackage"   value="com.atguigu.mp.beans"></property>
 
-        <!--分页插件-->
+
         <property name="plugins" >
             <list>
+                <!--分页插件-->
                 <bean class="com.baomidou.mybatisplus.plugins.PaginationInterceptor"/>
+
+                <!--注册执行分析插件-->
+                <bean class="com.baomidou.mybatisplus.plugins.SqlExplainInterceptor">
+                    <property name="stopProceed" value="true"></property>
+                </bean>
+                <!--性能分析插件-->
+                <bean class="com.baomidou.mybatisplus.plugins.PerformanceInterceptor">
+                    <property name="maxTime" value="1000"></property>
+                    <property name="format" value="true"></property>
+                </bean>
             </list>
         </property>
 <!--        <property name="globalConfig" ref="globalConfiguration" ></property>-->

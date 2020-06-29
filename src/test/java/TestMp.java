@@ -21,6 +21,19 @@ public class TestMp {
 
 
     @Test
+    public void TestDelateAllStop() {
+        EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
+        employeeMapper.selectById(1);
+    }
+
+//        @Test
+//    public void TestDelateAllStop() {
+//        EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
+//        employeeMapper.delete(null);
+//    }
+
+
+//    @Test
     public void TestPageUpdateWrapper() {
         EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
 
