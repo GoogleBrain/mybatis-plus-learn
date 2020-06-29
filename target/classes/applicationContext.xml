@@ -37,6 +37,12 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
         <!-- 别名处理 -->
         <property name="typeAliasesPackage"   value="com.atguigu.mp.beans"></property>
 
+        <!--分页插件-->
+        <property name="plugins" >
+            <list>
+                <bean class="com.baomidou.mybatisplus.plugins.PaginationInterceptor"/>
+            </list>
+        </property>
 <!--        <property name="globalConfig" ref="globalConfiguration" ></property>-->
     </bean>
 
