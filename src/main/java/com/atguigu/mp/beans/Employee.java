@@ -1,9 +1,6 @@
 package com.atguigu.mp.beans;
 
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.annotations.Version;
+import com.baomidou.mybatisplus.annotations.*;
 import com.baomidou.mybatisplus.enums.IdType;
 
 @TableName(value = "tbl_employee")
@@ -16,6 +13,17 @@ public class Employee {
     private Integer age ;
     @Version
     private Integer version;
+
+    @TableLogic
+    private Integer logicFlag;
+
+    public Integer getLogicFlag() {
+        return logicFlag;
+    }
+
+    public void setLogicFlag(Integer logicFlag) {
+        this.logicFlag = logicFlag;
+    }
 
     public Integer getVersion() {
         return version;
@@ -74,6 +82,7 @@ public class Employee {
                 ", gender=" + gender +
                 ", age=" + age +
                 ", version=" + version +
+                ", logicFlag=" + logicFlag +
                 '}';
     }
 }

@@ -62,14 +62,18 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     </bean>
 
     <!--全局配置-->
-    <!--
     <bean id="globalConfiguration" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
-         <property name="idType" value="0"></property>
-    </bean>-->
+        <property name="sqlInjector" ref="logicSqlInjector"></property>
+        <property name="logicDeleteValue" value="-1"></property>
+        <property name="logicNotDeleteValue" value="1"></property>
+    </bean>
     <!--
     配置 mybatis 扫描 mapper 接口的路径
     -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.atguigu.mp.mapper"></property>
     </bean>
+
+    <!--逻辑删除-->
+    <bean id="logicSqlInjector" class="com.baomidou.mybatisplus.mapper.LogicSqlInjector"></bean>
 </beans>

@@ -18,16 +18,15 @@ public class TestMp {
 
     private ApplicationContext iocContext = new
             ClassPathXmlApplicationContext("applicationContext.xml");
-
     /**
      * 自定义接口
      */
-    @Test
-    public void TestDelateAllStop() {
-        EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
-        int i = employeeMapper.selectCount();
-        System.out.println(">>>>" + i);
-    }
+//    @Test
+//    public void TestDelateAllStop() {
+//        EmployeeMapper employeeMapper = iocContext.getBean("employeeMapper", EmployeeMapper.class);
+//        int i = employeeMapper.selectCount();
+//        System.out.println(">>>>" + i);
+//    }
 
     /**
      * 乐观锁插件

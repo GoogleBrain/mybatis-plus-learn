@@ -62,10 +62,10 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     </bean>
 
     <!--全局配置-->
-    <!--
     <bean id="globalConfiguration" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
-         <property name="idType" value="0"></property>
-    </bean>-->
+
+
+    </bean>
     <!--
     配置 mybatis 扫描 mapper 接口的路径
     -->
